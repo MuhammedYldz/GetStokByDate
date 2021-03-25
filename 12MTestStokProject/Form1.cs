@@ -27,6 +27,11 @@ namespace _12MTestStokProject
             this.unboundSource1.ValuePushed += unboundSource1_ValuePushed;
         }
 
+        /// <summary>
+        /// Başlangıç ve Bitiş Tarihleri filtresi ile DataAccess Sınıfındaki GetInfo Metodu ile
+        /// Veriyi Çekiyor
+        /// </summary>
+        /// <returns>List<DataInfoModel> tipinde info </returns>
         public List<DataInfoModel> GetData()
         {
             int baslangıcTarih = Convert.ToInt32(dateTimePicker1.Value.ToOADate());
@@ -43,8 +48,10 @@ namespace _12MTestStokProject
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //data'yı listeleyebilmek için GetData metodu ile çekiyoruz.
             List<DataInfoModel> info = GetData();
 
+            //Her bir info degerini Sütunları tek tek girirek girid'e aktarıyor.
             foreach (var item in info)
             {
 
