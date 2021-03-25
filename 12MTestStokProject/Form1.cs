@@ -51,24 +51,54 @@ namespace _12MTestStokProject
             //data'yı listeleyebilmek için GetData metodu ile çekiyoruz.
             List<DataInfoModel> info = GetData();
 
-            //Her bir info degerini Sütunları tek tek girirek girid'e aktarıyor.
-            foreach (var item in info)
+            if (textBox1.Text!=null)
             {
-
-                gridView1.AddNewRow();
-
-                gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["SıraNo"], item.SıraNo);
-                gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["EvrakNo"], item.EvrakNo);
-                gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["IslemTur"], item.IslemTur);
-                gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["Tarih"], item.Tarih);
-                gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["GirisMiktar"], item.GirisMiktar);
-                gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["CıkısMiktar"], item.CıkısMiktar);
-                if (item.IslemTur == "Giriş")
+                
+                foreach (var item in info)
                 {
-                    gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["StokMiktar"], item.Miktar + item.GirisMiktar);
-                }
-                else { gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["StokMiktar"], item.Miktar - item.CıkısMiktar); }
+                    while (item.EvrakNo==Convert.ToChar(textBox1.Text))
+                    {
+                        gridView1.AddNewRow();
 
+                        gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["SıraNo"], item.SıraNo);
+                        gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["EvrakNo"], item.EvrakNo);
+                        gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["IslemTur"], item.IslemTur);
+                        gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["Tarih"], item.Tarih);
+                        gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["GirisMiktar"], item.GirisMiktar);
+                        gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["CıkısMiktar"], item.CıkısMiktar);
+                        if (item.IslemTur == "Giriş")
+                        {
+                            gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["StokMiktar"], item.Miktar + item.GirisMiktar);
+                        }
+                        else { gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["StokMiktar"], item.Miktar - item.CıkısMiktar); }
+
+                    }
+
+                }
+
+            }
+
+            else
+            {
+                //Her bir info degerini Sütunları tek tek girirek girid'e aktarıyor.
+                foreach (var item in info)
+                {
+
+                    gridView1.AddNewRow();
+
+                    gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["SıraNo"], item.SıraNo);
+                    gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["EvrakNo"], item.EvrakNo);
+                    gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["IslemTur"], item.IslemTur);
+                    gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["Tarih"], item.Tarih);
+                    gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["GirisMiktar"], item.GirisMiktar);
+                    gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["CıkısMiktar"], item.CıkısMiktar);
+                    if (item.IslemTur == "Giriş")
+                    {
+                        gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["StokMiktar"], item.Miktar + item.GirisMiktar);
+                    }
+                    else { gridView1.SetRowCellValue(GridControl.NewItemRowHandle, gridView1.Columns["StokMiktar"], item.Miktar - item.CıkısMiktar); }
+
+                }
             }
         }
 
