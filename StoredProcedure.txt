@@ -1,0 +1,22 @@
+USE [12mStok]
+GO
+/****** Object:  StoredProcedure [dbo].[spSTI_Filter]    Script Date: 25.03.2021 21:50:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[spSTI_Filter]
+	@BaslangıcTarih int,
+	@BitisTarih int 
+AS
+BEGIN
+SET NOCOUNT ON;
+		SELECT ROW_NUMBER() OVER(ORDER BY Tarih) AS SıraNo, 
+		CASE WHEN IslemTur = 0 Then 'Giriş' Else 'Çıkış' END AS IslemTur,
+		EvrakNo,
+		CONVERT(VARCHAR(15), CAST(Tarih - 2 AS datetime), 104),
+		CASE WHEN IslemTur = 0 THEN Miktar ELSE 0 END AS GirisMiktar,
+		CASE WHEN IslemTur = 0 THEN 0 ELSE Miktar END AS CıkısMiktar
+		from dbo.STI where CONVERT(VARCHAR(15), CAST(Tarih - 2 AS datetime), 104) BETWEEN CONVERT(VARCHAR(15), CAST(@BaslangıcTarih - 2 AS datetime), 104) AND CONVERT(VARCHAR(15), CAST(@BitisTarih - 2 AS datetime), 104) ;
+
+END
