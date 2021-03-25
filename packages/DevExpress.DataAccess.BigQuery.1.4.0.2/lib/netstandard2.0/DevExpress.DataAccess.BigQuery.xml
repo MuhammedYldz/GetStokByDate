@@ -1,0 +1,1010 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevExpress.DataAccess.BigQuery</name>
+    </assembly>
+    <members>
+        <member name="T:DevExpress.DataAccess.BigQuery.BigQueryCommand">
+            <summary>
+            A SQL statement to be executed against a BigQuery data source.
+            </summary>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryCommand.#ctor(DevExpress.DataAccess.BigQuery.BigQueryCommand)">
+            <summary>
+            Initializes a new instance of the BigQueryCommand class with the specified prototype.
+            </summary>
+            <param name="command">A BigQueryCommand object to clone. </param>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryCommand.#ctor(System.String,DevExpress.DataAccess.BigQuery.BigQueryConnection)">
+            <summary>
+            Initializes a new instance of the BigQueryCommand class with the specified command text and connection settings.
+            </summary>
+            <param name="commandText">A System.String values specifying the text of a SQL statement.</param>
+            <param name="connection">A BigQueryConnection object.</param>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryCommand.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the BigQueryCommand class with the specified command text.
+            </summary>
+            <param name="commandText">A System.String values specifying the text of a SQL statement.</param>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryCommand.#ctor">
+            <summary>
+            Initializes a new instance of the BigQueryCommand class with default settings.
+            </summary>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryCommand.CommandText">
+            <summary>
+            Specifies the text of a SQL statement to be executed.
+            </summary>
+            <value>
+            A System.String value specifying the command text.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryCommand.CommandTimeout">
+            <summary>
+            Specifies the time before terminating the attempt to execute the command. 
+            </summary>
+            <value>
+            The amount of time in seconds. The default value is 30.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryCommand.CommandType">
+            <summary>
+            Specifies how the command should be interpreted.
+            </summary>
+            <value>
+            A CommandType enumeration value.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryCommand.UpdatedRowSource">
+            <summary>
+            Specifies how a query command results are applied to a data row being updated. This implementation always throws NotSupportedException.
+            </summary>
+            <value>
+            An UpdateRowSource enumeration value.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryCommand.Connection">
+            <summary>
+            Specifies the current connection to a BigQuery data source.
+            </summary>
+            <value>
+            A BigQueryConnection object.
+            </value>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryCommand.Prepare">
+            <summary>
+            Creates a prepared (or compiled) version of the command on the data source. This implementation always throws NotSupportedException.
+            </summary>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryCommand.DesignTimeVisible">
+            <summary>
+            Indicates whether the command object should be visible in a customized interface control.
+            </summary>
+            <value>
+            true, if the command object should be visible in a control; otherwise false.
+            </value>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryCommand.ExecuteNonQueryAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously executes a non-query SQL statement. The asynchronous result contains the number of rows affected.
+            </summary>
+            <param name="cancellationToken"> A cancellation token that can be used to cancel command execution.</param>
+            <returns>
+            An asynchronous operation result, containing an Int32 value.
+            </returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryCommand.ExecuteNonQuery">
+            <summary>
+            Executes a non-query SQL statement and returns the number of rows affected.
+            </summary>
+            <returns>
+            The number of rows affected.
+            </returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryCommand.ExecuteScalarAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously executes a SQL statement. The asynchronous result contains the first column of the first row of the resulting data.
+            </summary>
+            <param name="cancellationToken">A cancellation token that can be used to cancel command execution.</param>
+            <returns>An asynchronous operation result, containing an Object value.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryCommand.ExecuteScalar">
+            <summary>
+            Executes a SQL statement and returns the first column of the first row of the resulting data.
+            </summary>
+            <returns>
+            The first column of the first row of the resulting data.
+            </returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryCommand.Cancel">
+            <summary>
+            Cancels the execution of the current BigQueryCommand.
+            </summary>
+        </member>
+        <member name="T:DevExpress.DataAccess.BigQuery.BigQueryCommandBuilder">
+            <summary>
+            Automatically generates commands to be executed against a BigQuery data source.
+            </summary>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryCommandBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the BigQueryCommandBuilder class with default settings.
+            </summary>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryCommandBuilder.#ctor(DevExpress.DataAccess.BigQuery.BigQueryDataAdapter)">
+            <summary>
+            Initializes a new instance of the BigQueryCommandBuilder class with the specified data adapter.
+            </summary>
+            <param name="dataAdapter">A BigQueryDataAdapter for which to generate commands.</param>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryCommandBuilder.DataAdapter">
+            <summary>
+            Specifies a BigQuery data adapter for which commands are generated.
+            </summary>
+            <value>
+            A BigQueryDataAdapter object.
+            </value>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryCommandBuilder.GetDeleteCommand">
+            <summary>
+            Returns a command that deletes records from a data source.
+            </summary>
+            <returns>An automatically generated BigQuery command used to delete rows from a BigQuery data table.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryCommandBuilder.GetDeleteCommand(System.Boolean)">
+            <summary>
+            Returns a command that deletes records from a data source.
+            </summary>
+            <param name="useColumnsForParameterNames">pecifies whether to generate parameter names based on column names.</param>
+            <returns>An automatically generated BigQuery command used to delete rows from a BigQuery data table.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryCommandBuilder.GetInsertCommand">
+            <summary>
+            Returns a command that inserts a record into a data source.
+            </summary>
+            <returns>An automatically generated BigQuery command used to insert rows into a BigQuery data table.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryCommandBuilder.GetInsertCommand(System.Boolean)">
+            <summary>
+            Returns a command that inserts a record into a data source.
+            </summary>
+            <param name="useColumnsForParameterNames">Specifies whether to generate parameter names based on column names.</param>
+            <returns>An automatically generated BigQuery command used to delete rows from a BigQuery data table.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryCommandBuilder.QuoteIdentifier(System.String)">
+            <summary>
+            Returns a properly quoted analog of the specified quoted identifier.
+            </summary>
+            <param name="unquotedIdentifier">a string containing an unquoted identifier. </param>
+            <returns>a string containing a properly quoted identifier.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryCommandBuilder.UnquoteIdentifier(System.String)">
+            <summary>
+            Returns an unquoted analog of the specified quoted identifier.
+            </summary>
+            <param name="quotedIdentifier">a string containing an unquoted identifier.</param>
+            <returns>a string containing an identifier with quotes removed. </returns>
+        </member>
+        <member name="T:DevExpress.DataAccess.BigQuery.BigQueryConnection">
+            <summary>
+            Represents a connection to BigQuery.
+            </summary>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryConnection.#ctor">
+            <summary>
+            Initializes a new instance of the BigQueryConnection class with default settings.
+            </summary>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryConnection.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the BigQueryConnection class with the specified connection string.
+            </summary>
+            <param name="connectionString">A System.String specifying a connection string.</param>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryConnection.ChangeDatabase(System.String)">
+            <summary>
+            Changes the database for the current connection.
+            </summary>
+            <param name="databaseName">A System.String value specifying the database name.</param>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryConnection.OpenAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously opens a data connection.
+            </summary>
+            <param name="cancellationToken">A cancellation token that can be used to cancel opening a data connection.</param>
+            <returns>A System.Threading.Tasks.Task, specifying an asynchronous operation.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryConnection.Open">
+            <summary>
+            Opens a data connection.
+            </summary>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryConnection.Close">
+            <summary>
+            Closes the current data connection.
+            </summary>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryConnection.GetDataSetNames">
+            <summary>
+            Returns a list of datasets available in the current Google Cloud Platform project.
+            </summary>
+            <returns>an array of System.String values containing names of available datasets.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryConnection.GetTableNames">
+            <summary>
+            Returns a list of tables available in the current BigQuery dataset.
+            </summary>
+            <returns>an array of System.String values containing names of available data tables.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryConnection.GetViewNames">
+            <summary>
+            Returns a list of views available in the current BigQuery dataset.
+            </summary>
+            <returns>an array of System.String values containing names of available data views.</returns>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryConnection.ConnectionString">
+            <summary>
+            Specifies the connection string used to establish the current data connection.
+            </summary>
+            <value>
+            a System.String value specifying a connection string.
+            </value>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryConnection.CreateCommand">
+            <summary>
+            Creates a new BigQuery command associated with the current data connection.
+            </summary>
+            <returns>a BigQueryCommand object.</returns>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryConnection.DataSource">
+            <summary>
+            Gets the name of a BigQueryproject to which to connect. 
+            </summary>
+            <value>
+            Gets the name of the BigQuery data source to which to connect.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryConnection.Database">
+            <summary>
+            Gets the name of the current Big Query dataset.
+            </summary>
+            <value>
+            The name of the current dataset.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryConnection.ServerVersion">
+            <summary>
+            Gets a string containing the version of a database server to which the client is connected. This implementation always throws NotSupportedException.
+            </summary>
+            <value>
+            A string containing the version of database server. 
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryConnection.State">
+            <summary>
+            Gets the state of the current data connection.
+            </summary>
+            <value>
+            A ConnectionState enumeration value.
+            </value>
+        </member>
+        <member name="T:DevExpress.DataAccess.BigQuery.BigQueryRowUpdatingEventHandler">
+            <summary>
+            Represents the method that will handle the RowUpdating event of a BigQueryDataAdapter.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">A BigQueryRowUpdatingEventArgs object containing event data.</param>
+        </member>
+        <member name="T:DevExpress.DataAccess.BigQuery.BigQueryRowUpdatedEventHandler">
+            <summary>
+            Represents the method that will handle the RowUpdated event of a BigQueryDataAdapter.
+            </summary>
+            <param name="sender">The source of the event. </param>
+            <param name="e">A BigQueryRowUpdatedEventArgs object containing event data.</param>
+        </member>
+        <member name="T:DevExpress.DataAccess.BigQuery.BigQueryDataAdapter">
+            <summary>
+            Provides access to data connections and commands used to operate with a BigQuery data source.
+            </summary>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataAdapter.#ctor">
+            <summary>
+            Initializes a new instance of the BigQueryDataAdapter class with default settings.
+            </summary>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataAdapter.#ctor(DevExpress.DataAccess.BigQuery.BigQueryCommand)">
+            <summary>
+            Initializes a new instance of the BigQueryDataAdapter class.
+            </summary>
+            <param name="selectCommand">A BigQueryCommand object specifying a command used to obtain rows from a BigQuery data table.</param>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataAdapter.#ctor(System.String,DevExpress.DataAccess.BigQuery.BigQueryConnection)">
+            <summary>
+            Initializes a new instance of the BigQueryDataAdapter class.
+            </summary>
+            <param name="selectCommandText">The text of a command used to obtain rows from a BigQuery data table.</param>
+            <param name="connection">A BigQueryConnection object specifying an active connection to BigQuery.</param>
+        </member>
+        <member name="E:DevExpress.DataAccess.BigQuery.BigQueryDataAdapter.RowUpdating">
+            <summary>
+             Occurs during the update before a command is executed against the data source.
+            </summary>
+        </member>
+        <member name="E:DevExpress.DataAccess.BigQuery.BigQueryDataAdapter.RowUpdated">
+            <summary>
+            Occurs after a command has been executed against the data source.
+            </summary>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryDataAdapter.SelectCommand">
+            <summary>
+            Specifies a command used to obtain rows from a BigQuery data table.
+            </summary>
+            <value>
+            A BigQuery command used to obtain rows from a BigQuery data table.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryDataAdapter.InsertCommand">
+            <summary>
+             Specifies a command used to insert rows into a BigQuery data table.
+            </summary>
+            <value>
+            A BigQuery command used to insert rows into a BigQuery data table.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryDataAdapter.UpdateCommand">
+            <summary>
+            Specifies a command used to update rows of a BigQuery data table.
+            </summary>
+            <value>
+            A BigQuery command used to update rows of a BigQuery data table.
+            </value>
+        </member>
+        <member name="T:DevExpress.DataAccess.BigQuery.BigQueryRowUpdatingEventArgs">
+            <summary>
+            Provides data for the RowUpdating event.
+            </summary>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryRowUpdatingEventArgs.#ctor(System.Data.DataRow,System.Data.IDbCommand,System.Data.StatementType,System.Data.Common.DataTableMapping)">
+            <summary>
+             Initializes a new instance of the BigQueryRowUpdatingEventArgs class.
+            </summary>
+            <param name="dataRow">The DataRow sent throught an Update.</param>
+            <param name="command">A BigQueryCommand being executed when Update is called.</param>
+            <param name="statementType">A StatementType enumeration value indicating the type of the statement being executed.</param>
+            <param name="tableMapping">The DataTableMapping sent through an Update.</param>
+        </member>
+        <member name="T:DevExpress.DataAccess.BigQuery.BigQueryRowUpdatedEventArgs">
+            <summary>
+            Provides data for the RowUpdated event.
+            </summary>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryRowUpdatedEventArgs.#ctor(System.Data.DataRow,System.Data.IDbCommand,System.Data.StatementType,System.Data.Common.DataTableMapping)">
+            <summary>
+            Initializes a new instance of the BigQueryRowUpdatedEventArgs class.
+            </summary>
+            <param name="dataRow">The DataRow sent throught an Update.</param>
+            <param name="command"> A BigQueryCommand that has been executed as a result of calling Update.</param>
+            <param name="statementType">A StatementType enumeration value indicating the type of the executed statement.</param>
+            <param name="tableMapping">The DataTableMapping sent through an Update.</param>
+        </member>
+        <member name="T:DevExpress.DataAccess.BigQuery.BigQueryDataReader">
+            <summary>
+            Provides access to resulting data of command execution.
+            </summary>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.Close">
+            <summary>
+            Closes the current BigQueryDataReader.
+            </summary>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetFieldValue``1(System.Int32)">
+            <summary>
+            Returns the value of the specified column as a type. 
+            </summary>
+            <typeparam name="T">The type of a value to return.</typeparam>
+            <param name="ordinal">The ordinal number of the required column.</param>
+            <returns>The value of the specified column. </returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetSchemaTable">
+            <summary>
+            Returns a data table containing column metadata of the reader. 
+            </summary>
+            <returns>a DataTable containing column metadata.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.NextResult">
+            <summary>
+            Advances the reader to the next result set.
+            </summary>
+            <returns>true, if there are more result, sets; otherwise false.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.Read">
+            <summary>
+            Advances the reader to the next record in the current result set.
+            </summary>
+            <returns>true, if there are more records in the result set; otherwise, false.</returns>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryDataReader.Depth">
+            <summary>
+            Gets the nesting depth of the current data row. BigQuery does now support nesting, and this property always returns 0;
+            </summary>
+            <value>
+            the nesting depth of the current data row.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryDataReader.IsClosed">
+            <summary>
+            Indicates whether the current BigQueryDataReader is closed.
+            </summary>
+            <value>
+            true, if the current BigQueryDataReader is closed; otherwise false.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryDataReader.RecordsAffected">
+            <summary>
+            Returns the total count of data records affected by executing a command. 
+            </summary>
+            <value>
+            the number of rows affected.
+            </value>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetBoolean(System.Int32)">
+            <summary>
+            Gets a value of the System.Boolean type from the specified column.
+            </summary>
+            <param name="ordinal">The ordinal number of the required column.</param>
+            <returns>The value of the specified column.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetByte(System.Int32)">
+            <summary>
+            Gets a value of the System.Byte type from the specified column. This implementation always throws NotSupportedException.
+            </summary>
+            <param name="ordinal">The ordinal number of the required column.</param>
+            <returns>The value of the specified column.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetBytes(System.Int32,System.Int64,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Reads bytes from the specified column into a buffer. This implementation always throws NotSupportedException.
+            </summary>
+            <param name="ordinal">The ordinal number of a column.</param>
+            <param name="dataOffset">An offset in the source data from which to start reading.</param>
+            <param name="buffer">A buffer to which to copy data. </param>
+            <param name="bufferOffset">An offset in the buffer from which to start writing.</param>
+            <param name="length">The maximum number of bytes to read.</param>
+            <returns>The number of bytes that has been read.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetChar(System.Int32)">
+            <summary>
+            Gets a value of the System.Guid type from the specified column. This implementation always throws NotSupportedException.
+            </summary>
+            <param name="ordinal">The ordinal number of the required column.</param>
+            <returns>The value of the specified column.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetChars(System.Int32,System.Int64,System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Reads characters from the specified column into a buffer. This implementation always throws NotSupportedException.
+            </summary>
+            <param name="ordinal">The ordinal number of a column.</param>
+            <param name="dataOffset">An offset in the source data from which to start reading.</param>
+            <param name="buffer">A buffer to which to copy data. </param>
+            <param name="bufferOffset">An offset in the buffer from which to start writing.</param>
+            <param name="length">The maximum number of characters to read.</param>
+            <returns>The number of characters that has been read.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetGuid(System.Int32)">
+            <summary>
+            Gets a value of the System.Guid type from the specified column. This implementation always throws NotSupportedException.
+            </summary>
+            <param name="ordinal">The ordinal number of the required column.</param>
+            <returns>The value of the specified column.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetInt16(System.Int32)">
+            <summary>
+            Gets a value of the System.Int16 type from the specified column.
+            </summary>
+            <param name="ordinal">The ordinal number of the required column.</param>
+            <returns>The value of the specified column.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetInt32(System.Int32)">
+            <summary>
+            Gets a value of the System.Int32 type from the specified column.
+            </summary>
+            <param name="ordinal">The ordinal number of the required column.</param>
+            <returns>The value of the specified column.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetInt64(System.Int32)">
+            <summary>
+            Gets a value of the System.Int64 type from the specified column.
+            </summary>
+            <param name="ordinal">The ordinal number of the required column.</param>
+            <returns>The value of the specified column.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetDateTime(System.Int32)">
+            <summary>
+            Gets a value of the System.DateTime type from the specified column.
+            </summary>
+            <param name="ordinal">The ordinal number of the required column.</param>
+            <returns>The value of the specified column.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetString(System.Int32)">
+            <summary>
+            Gets a value of the System.String type from the specified column.
+            </summary>
+            <param name="ordinal">The ordinal number of the required column.</param>
+            <returns>The value of the specified column.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetDecimal(System.Int32)">
+            <summary>
+            Gets a value of the System.Decimal type from the specified column. This implementation always throws NotSupportedException.
+            </summary>
+            <param name="ordinal">The ordinal number of the required column.</param>
+            <returns>The value of the specified column.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetDouble(System.Int32)">
+            <summary>
+            Gets a value of the System.Double type from the specified column. This implementation always throws NotSupportedException.
+            </summary>
+            <param name="ordinal">The ordinal number of the required column.</param>
+            <returns>The value of the specified column.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetFloat(System.Int32)">
+            <summary>
+            Gets a value of the float type from the specified column.
+            </summary>
+            <param name="ordinal">The ordinal number of the required column.</param>
+            <returns>The value of the specified column.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetName(System.Int32)">
+            <summary>
+            Returns the name of the specified column.
+            </summary>
+            <param name="ordinal">The ordinal number of a column.</param>
+            <returns>A string containing the name of the specified column.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetProviderSpecificValues(System.Object[])">
+            <summary>
+            Fills an array with provider-specific values of all columns in the reader.
+            </summary>
+            <param name="values">An array to which to copy obtained values.</param>
+            <returns>The number of values added to the array.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetValues(System.Object[])">
+            <summary>
+            Fills an array with values of all columns in the reader.
+            </summary>
+            <param name="values">An array to which to copy obtained values.</param>
+            <returns>The number of values added to the array.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.IsDBNull(System.Int32)">
+            <summary>
+            Returns a value that indicates whether the content of the specified column is equal to System.Data.DbNull.
+            </summary>
+            <param name="ordinal">The ordinal number of a column.</param>
+            <returns>true, if the content of the specified column is equal to System.Data.DbNull; otherwise, false.</returns>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryDataReader.VisibleFieldCount">
+            <summary>
+            Gets the number of visible columns in the current row.
+            </summary>
+            <value>
+            The number of visible columns in the reader.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryDataReader.FieldCount">
+            <summary>
+            Gets the total number of columns in the current row.
+            </summary>
+            <value>
+            the number of columns in the current row. 
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryDataReader.Item(System.Int32)">
+            <summary>
+            Gets the value of the specified column.
+            </summary>
+            <param name="ordinal">The ordinal number of a column.</param>
+            <returns>The value of the specified column.</returns>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryDataReader.Item(System.String)">
+            <summary>
+            Gets the value of a column specified by its name.
+            </summary>
+            <param name="name">The column name.</param>
+            <returns>The value of the specified column.</returns>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryDataReader.HasRows">
+            <summary>
+             Indicates whether or not there are more rows in the reader.
+            </summary>
+            <value>
+            true, if there are more rows in the reader; otherwise false.
+            </value>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetOrdinal(System.String)">
+            <summary>
+            Returns the ordinal number of a column specified by its name.
+            </summary>
+            <param name="name">the name of a column.</param>
+            <returns>The ordinal number of the specified column.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetDataTypeName(System.Int32)">
+            <summary>
+             Gets the name of the data type of the specified column.
+            </summary>
+            <param name="ordinal">The ordinal number of the required column.</param>
+            <returns>The name of the specified column.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetProviderSpecificFieldType(System.Int32)">
+            <summary>
+            Gets the provider-specific type of the specified column.
+            </summary>
+            <param name="ordinal">The ordinal number of a column.</param>
+            <returns>The type of the specified column.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetFieldType(System.Int32)">
+            <summary>
+            Gets the type of the specified column.
+            </summary>
+            <param name="ordinal"> The ordinal number of a column.</param>
+            <returns>The type of the specified column.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetProviderSpecificValue(System.Int32)">
+            <summary>
+            Returns the provider-specific value of the specified field. 
+            </summary>
+            <param name="ordinal">The ordinal number of a column.</param>
+            <returns>The value of the specified column.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetValue(System.Int32)">
+            <summary>
+             Gets a value of the Object type from the specified column.
+            </summary>
+            <param name="ordinal"> The ordinal number of a column.</param>
+            <returns>The value of the specified column.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryDataReader.GetEnumerator">
+            <summary>
+            returns an enumerator that allows iterating through all rows in the reader. 
+            </summary>
+            <returns>an object implementing the IEnumerator interface.</returns>
+        </member>
+        <member name="T:DevExpress.DataAccess.BigQuery.BigQueryDbType">
+            <summary>
+            Lists BigQuery data types. 
+            </summary>
+        </member>
+        <member name="F:DevExpress.DataAccess.BigQuery.BigQueryDbType.String">
+            <summary>
+            A Unicode character string.
+            </summary>
+        </member>
+        <member name="F:DevExpress.DataAccess.BigQuery.BigQueryDbType.Bytes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DevExpress.DataAccess.BigQuery.BigQueryDbType.Integer">
+            <summary>
+            A 64-bit integer.
+            </summary>
+        </member>
+        <member name="F:DevExpress.DataAccess.BigQuery.BigQueryDbType.Float">
+            <summary>
+            A double-precision floating point format.
+            </summary>
+        </member>
+        <member name="F:DevExpress.DataAccess.BigQuery.BigQueryDbType.Boolean">
+            <summary>
+            A binary type contining a value of either true or false.
+            </summary>
+        </member>
+        <member name="F:DevExpress.DataAccess.BigQuery.BigQueryDbType.Record">
+            <summary>
+            A collection of fields.
+            </summary>
+        </member>
+        <member name="F:DevExpress.DataAccess.BigQuery.BigQueryDbType.Timestamp">
+            <summary>
+            A type used to store either a UNIX timestamp or  a date/time string. A value is stored internally as a UNIX timestamp.
+            </summary>
+        </member>
+        <member name="F:DevExpress.DataAccess.BigQuery.BigQueryDbType.Date">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DevExpress.DataAccess.BigQuery.BigQueryDbType.Time">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DevExpress.DataAccess.BigQuery.BigQueryDbType.DateTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DevExpress.DataAccess.BigQuery.BigQueryDbType.Unknown">
+            <summary>
+            A type unsupported by BigQuery.
+            </summary>
+        </member>
+        <member name="T:DevExpress.DataAccess.BigQuery.BigQueryException">
+            <summary>
+            The exception thrown when BigQuery returns a server-side warning or error.
+            </summary>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the BigQueryExcpetion class with the specified message.
+            </summary>
+            <param name="message">The message describing the current exception.</param>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryException.#ctor(System.String,Google.GoogleApiException)">
+            <summary>
+            Initializes a new instance of the BigQueryExcpetion class with the specified settings.
+            </summary>
+            <param name="message">The message describing the current exception.</param>
+            <param name="innerException">A GoogleApiException object representing.</param>
+        </member>
+        <member name="T:DevExpress.DataAccess.BigQuery.BigQueryParameter">
+            <summary>
+            A parameter to a BigQueryCommand.
+            </summary>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameter.#ctor">
+            <summary>
+            Initializes a new instance of the BigQueryParameter class with default settings.
+            </summary>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameter.#ctor(System.String,System.Object)">
+            <summary>
+            Initializes a new instance of the BigQueryParameter class with the specified settings.
+            </summary>
+            <param name="parameterName">The name of the parameter.</param>
+            <param name="value">The value of the parameter.</param>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameter.#ctor(System.String,System.Data.DbType)">
+            <summary>
+            Initializes a new instance of the BigQueryParameter class with the specified settings.
+            </summary>
+            <param name="parameterName">The name of the parameter.</param>
+            <param name="dbType">A DBType enumeration value specifying the data type of the parameter.</param>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameter.#ctor(System.String,DevExpress.DataAccess.BigQuery.BigQueryDbType)">
+            <summary>
+            Initializes a new instance of the BigQueryParameter class with the specified settings.
+            </summary>
+            <param name="parameterName">The name of the parameter.</param>
+            <param name="bigQueryDbType">A BigQueryDbType enumeration value specifying the data type of the parameter.</param>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryParameter.BigQueryDbType">
+            <summary>
+             Specifies the type of the parameter specific to Big Query.
+            </summary>
+            <value>
+            A BigQueryDbType enumeration value.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryParameter.DbType">
+            <summary>
+            Specifies the DbType of the parameter.
+            </summary>
+            <value>
+            A DBType enumeration value.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryParameter.Direction">
+            <summary>
+            Specifies whether the parameter is read-only, write-only, bidirectional or a stored procedure return value. This implementation only supports ParameterDirrection.Input as its value.
+            </summary>
+            <value>
+             A ParameterDirrection enumeration value. 
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryParameter.IsNullable">
+            <summary>
+            Specifies whether or not the parameter can receive DBNull as its value.
+            </summary>
+            <value>
+            true, if the parameter can receive DBNull as its value; otherwise false. 
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryParameter.ParameterName">
+            <summary>
+            Specifies the name of the parameter.
+            </summary>
+            <value>
+            The name of the parameter. 
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryParameter.SourceColumn">
+            <summary>
+            Specifies the name of the source column used for loading and returning the parameter's Value. 
+            </summary>
+            <value>
+            The name of a source column.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryParameter.SourceVersion">
+            <summary>
+             Specifies the DataRowVersion of the source row to be used when obtaining the parameter's value.
+            </summary>
+            <value>
+            A DataRowVersion enumeration value.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryParameter.SourceColumnNullMapping">
+            <summary>
+            Specifies whether the source column of the current parameter is nullable.
+            </summary>
+            <value>
+            true, if the source column is nullable; otherwise false. 
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryParameter.Value">
+            <summary>
+            Specifies the value of the parameter.
+            </summary>
+            <value>
+            an Object specifying the value of the parameter.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryParameter.Size">
+            <summary>
+            Specifies the maximum size of data in the source column.
+            </summary>
+            <value>
+            The size of data in the source column.
+            </value>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameter.ResetDbType">
+            <summary>
+            Resets the data type associated with the parameter.
+            </summary>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameter.Clone">
+            <summary>
+             Creates a shallow copy of the current BigQueryParameter.
+            </summary>
+            <returns>a shallow copy of the current BigQueryParameter.</returns>
+        </member>
+        <member name="T:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection">
+            <summary>
+            A collection of BigQueryParameter objects.
+            </summary>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection.Count">
+            <summary>
+            Gets the number of parameters in the collection.
+            </summary>
+            <value>
+            the number of elements in the collection.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection.IsSynchronized">
+            <summary>
+            indicates whether access to the current BigQueryParameterCollection collection is synchronized.
+            </summary>
+            <value>
+             true if access is synchronized; otherwise, false.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection.SyncRoot">
+            <summary>
+            Gets an object that can be used to synchronize access to the BigQueryParameterCollection.
+            </summary>
+            <value>
+            An object used to synchronize access to the BigQueryParameterCollection.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection.IsFixedSize">
+            <summary>
+             Indicates whether the collection is a fixed size.
+            </summary>
+            <value>
+            true if the collection is a fixed size; otherwise false.
+            </value>
+        </member>
+        <member name="P:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection.IsReadOnly">
+            <summary>
+            Indicates whether the collection is read-only.
+            </summary>
+            <value>
+            true if the collection is read-only; otherwise false.
+            </value>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection.Add(System.String,System.Data.DbType)">
+            <summary>
+            Adds a new parameter to the collection.
+            </summary>
+            <param name="parameterName">The name of a BigQueryParameter.</param>
+            <param name="dbType">A DBType enumeration value specifying the data type of the parameter.</param>
+            <returns>The index of a new BigQuery parameter in the collection.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection.IndexOf(System.String)">
+            <summary>
+            returns the index of the specified parameter.
+            </summary>
+            <param name="parameterName">The name of a BigQueryParameter.</param>
+            <returns>the index of the specified BigQueryParameter.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection.IndexOf(System.Object)">
+            <summary>
+            returns the index of the specified object.
+            </summary>
+            <param name="value">an object to find.</param>
+            <returns>the index of the specified object.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection.GetEnumerator">
+            <summary>
+            Returns an enumerator used to iterate through the collection.
+            </summary>
+            <returns>an object implementing the IEnumerator interface.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection.Remove(System.Object)">
+            <summary>
+            Removes the specified BigQueryParameter form the collection.
+            </summary>
+            <param name="value">A BigQueryParameter object.</param>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection.RemoveAt(System.Int32)">
+            <summary>
+            Removes a BigQueryParameter specified by index from the collection.
+            </summary>
+            <param name="index">An index from which to remove an element.</param>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection.RemoveAt(System.String)">
+            <summary>
+            Removes a BigQueryParameter specified by name from the collection.
+            </summary>
+            <param name="parameterName">The name of a BigQueryParameter.</param>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection.Add(System.Object)">
+            <summary>
+            Adds a parameter to the collection.
+            </summary>
+            <param name="parameter">a BigQueryParameter object.</param>
+            <returns>The position into which the new element was inserted, or -1 to indicate that the item was not inserted into the collection.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection.Contains(System.Object)">
+            <summary>
+             Indicates whether or not the current collection contains the specified BigQueryParameter.
+            </summary>
+            <param name="value">A BigQueryParameter object.</param>
+            <returns>true, if the collection contains the specified parameter; otherwise, false.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection.Clear">
+            <summary>
+            Removes all items from the collection. 
+            </summary>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection.Insert(System.Int32,System.Object)">
+            <summary>
+            Inserts a BigQueryParameter to the current collection.
+            </summary>
+            <param name="index">An index at which to insert an element.</param>
+            <param name="value">A BigQueryParameter to insert.</param>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection.Contains(System.String)">
+            <summary>
+             Indicates whether or not the current collection contains the specified BigQueryParameter.
+            </summary>
+            <param name="parameterName">The name of a BigQueryParameter.</param>
+            <returns>true, if the collection contains the specified parameter; otherwise, false.</returns>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection.CopyTo(System.Array,System.Int32)">
+            <summary>
+            Copies the element of the current collection to the specified position of an Array.
+            </summary>
+            <param name="array">An zero-based Array to which to copy  the elements of the collection.</param>
+            <param name="index">An index within an Array at which to start copying.</param>
+        </member>
+        <member name="M:DevExpress.DataAccess.BigQuery.BigQueryParameterCollection.AddRange(System.Array)">
+            <summary>
+            Adds an array of values to the current collection.
+            </summary>
+            <param name="values">an array of BigQueryParameter objects.</param>
+        </member>
+    </members>
+</doc>
